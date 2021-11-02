@@ -1,3 +1,4 @@
+# VW MKIV Monsoon Amplifier
 I've been having a bit of fun reverse engineering the factory Monsoon amplifier. I'm just going to drop this here in case anyone's bored. If you have any requests or additional information you'd like to add, feel free to leave a reply. I'll update this post as I compile new information.
 
 ### After Market Headunits, Manual Amp Turn On, and Parasitic Draw
@@ -11,12 +12,16 @@ Pin 12 on the Grey connector is for the turn-on wire. You'll need to source a re
 
 In addition to the new turn-on wire, you'll also have to move the turn on resistor from the Left Front speaker signal to the Pin 12 traces. Take the amp out of the car, unscrew the four screws on the bottom of the amp, and pop off the bottom and top covers. De-solder the turn-on resistor and move it to the location indicated in the photo below. A good soldering iron, flux, and needle point tweezers highly recommended.
 
+![Preview](https://github.com/XDleader555/monsoon/raw/master/res/MonsoonResistorMove.jpg)
+
 ### Line Level Input
 Contrary to popular belief, the Monsoon amplifier will accept line level input. The input is isolated at the first op-amp, which is setup as a voltage follower. Since this circuit is high impedence, any line level input can be used to drive it.
 
 Just make sure you wire up the Manual Amp Turn on mentioned earlier, since line level voltage isn't enough to drive the transistor for the Automatic Amp Turn On. It's also isolated from ground, so the amp also won't turn off after the car is shut off.
 
 RCA connectors can be connected directly to the harness connector at the head unit. The example below uses Mini-Fit JR connectors in-between for cleanliness.
+
+![Preview](https://github.com/XDleader555/monsoon/raw/master/res/RCA_harness_adapter.jpg)
 
 ### Crossover
 Coming soon.
@@ -105,10 +110,10 @@ The diagnostics pin is setup to reduce the signal at the op-amp before it's fed 
 
 ## Volkswagen Part Numbers
 I have no clue why the Jetta and Golf have different amp part numbers. Perhaps they're tuned differently?
-
 1J6 035 456 C - Golf 2 & 4 Doors Monsoon Amp
 1J5 035 456 A - Jetta Monsoon Amp
 
+Front woofers are held in by rivets.
 1C0 035 411 E - 2 Ohm 50W 140mm Monsoon Woofer Rear
 1C0 035 411 G - 4 Ohm 70W 140mm Monsoon Woofer Front
 3B0 035 411 E - 4 Ohm 19mm Monsoon Tweeter Rear (Todo: Confirm Part Number)
