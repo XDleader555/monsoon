@@ -1,12 +1,12 @@
 # VW MKIV Monsoon Amplifier
 I've been having a bit of fun reverse engineering the factory Monsoon amplifier. I'm just going to drop this here in case anyone's bored. If you have any requests or additional information you'd like to add, feel free to leave a reply. I'll update this post as I compile new information.
 
-## After Market Headunits, Manual Amp Turn On, and Parasitic Draw
-The factory Monsoon headunit applies a DC voltage to the positive front left output to switch on the amplifier. When the car is turned off, the front left output is grounded to shut off the amplifier.
+## After Market Head Units, Manual Amp Turn On, and Parasitic Draw
+The factory Monsoon head unit applies a DC voltage to the positive front left output to switch on the amplifier. When the car is turned off, the front left output is grounded to shut off the amplifier.
 
-Aftermarket headunits obviously don't supply this DC signal. Speaker level voltage is enough to drive the Automatic Amp Turn On transistor, but since most headunit outputs are ground loop isolated the amplifier will most likely stay on after the car is shut off. This can result in a parasitic draw while the car is off.
+Aftermarket head units obviously don't supply this DC signal. Speaker level voltage is enough to drive the Automatic Amp Turn On transistor, but since most head unit outputs are ground loop isolated the amplifier will most likely stay on after the car is shut off. This can result in a parasitic draw while the car is off.
 
-The best solution for an aftermarket headunit or to fix an amplifier parasitic draw is to wire up the Manual Amp Turn On circuit. At the same time, the Automatic Amp Turn On circuit should be disconnected to avoid injecting DC voltage on the speaker input and frying your headunit.
+The best solution for an aftermarket head unit or to fix an amplifier parasitic draw is to wire up the Manual Amp Turn On circuit. At the same time, the Automatic Amp Turn On circuit should be disconnected to avoid injecting DC voltage on the speaker input and frying your head unit.
 
 Pin 12 on the Grey connector is for the turn-on wire. You'll need to source a repair pin to populate this connector, or hop on over to the parts yard and yank one yourself. You'll have to run this wire all the way up to your head unit amp turn-on wire, or tap the accessory wire. If you run this wire, you might as well run the RCA/Power/etc for a subwoofer.
 
@@ -15,7 +15,7 @@ In addition to the new turn-on wire, you'll also have to move the turn on resist
 ![Preview](https://github.com/XDleader555/monsoon/raw/master/res/MonsoonResistorMove.jpg)
 
 ## Line Level Input
-Contrary to popular belief, the Monsoon amplifier will accept line level input. The input is isolated at the first op-amp, which is setup as a voltage follower. Since this circuit is high impedence, any line level input can be used to drive it.
+Contrary to popular belief, the Monsoon amplifier will accept line level input. The input is isolated at the first op-amp, which is setup as a voltage follower. Since this circuit is high impedance, any line level input can be used to drive it.
 
 Just make sure you wire up the Manual Amp Turn on mentioned earlier, since line level voltage isn't enough to drive the transistor for the Automatic Amp Turn On. It's also isolated from ground, so the amp also won't turn off after the car is shut off.
 
@@ -88,7 +88,7 @@ The tweeters on low-line cars have a low-pass filter capacitor soldered directly
 | 23    | Constant 12 Volts     | Red           |           |
 
 ## Delco 82452 Audio Amplifier
-I haven't been able to find any datasheets online for this chip. I may desolder one and characterize it, but I haven't the need to yet.
+I haven't been able to find any datasheets online for this chip. I may de-solder one and characterize it, but I haven't the need to yet.
 
 TDA7396 is a pin-compatible drop in replacement for the Delco 82452 (Coincidence?)
 
@@ -133,7 +133,7 @@ Coming soon.
 - Disconnected circuit for Manual Amp Turn On (see earlier guide).
 
 ## Surface Mount Marking Decoding
-Brief list of surface mount pcb components.
+Brief list of surface mount PCB components.
 | Marking   | Description                                   |
 | --------- | --------------------------------------------- |
 | BA14741F  | Low Noise 4 Channel Operational Amplifier     |
