@@ -1,7 +1,7 @@
 # VW MKIV Monsoon Amplifier
 I've been having a bit of fun reverse engineering the factory Monsoon amplifier. I'm just going to drop this here in case anyone's bored. If you have any requests or additional information you'd like to add, feel free to leave a reply. I'll update this post as I compile new information.
 
-### After Market Headunits, Manual Amp Turn On, and Parasitic Draw
+## After Market Headunits, Manual Amp Turn On, and Parasitic Draw
 The factory Monsoon headunit applies a DC voltage to the positive front left output to switch on the amplifier. When the car is turned off, the front left output is grounded to shut off the amplifier.
 
 Aftermarket headunits obviously don't supply this DC signal. Speaker level voltage is enough to drive the Automatic Amp Turn On transistor, but since most headunit outputs are ground loop isolated the amplifier will most likely stay on after the car is shut off. This can result in a parasitic draw while the car is off.
@@ -14,7 +14,7 @@ In addition to the new turn-on wire, you'll also have to move the turn on resist
 
 ![Preview](https://github.com/XDleader555/monsoon/raw/master/res/MonsoonResistorMove.jpg)
 
-### Line Level Input
+## Line Level Input
 Contrary to popular belief, the Monsoon amplifier will accept line level input. The input is isolated at the first op-amp, which is setup as a voltage follower. Since this circuit is high impedence, any line level input can be used to drive it.
 
 Just make sure you wire up the Manual Amp Turn on mentioned earlier, since line level voltage isn't enough to drive the transistor for the Automatic Amp Turn On. It's also isolated from ground, so the amp also won't turn off after the car is shut off.
@@ -23,44 +23,44 @@ RCA connectors can be connected directly to the harness connector at the head un
 
 ![Preview](https://github.com/XDleader555/monsoon/raw/master/res/RCA_harness_adapter.jpg)
 
-### Crossover
+## Crossover
 Coming soon.
 
-### Speaker compatibility
+## Speaker compatibility
 The amplifier should technically be 2 ohm stable on all channels since the factory rear woofers are 2 ohms. The rest of the woofers/tweeters are 4 ohms.
 
 The tweeters on low-line cars have a low-pass filter capacitor soldered directly to the tweeter. This capacitor is missing on Monsoon equipped cars since the amplifier already has a crossover built into it.
 
-## Pinouts
-### 24 Pin Grey Input Connector
+# Pinouts
+## 24 Pin Grey Input Connector
 | Pin   | Description           | Color     |Notes                  |
 | :---: | -------------         | --------- |---------              |
 | 1     | Right Rear Tweeter +  |           | Hands-free speaker?   |
-| 2     | NC                    |           |                       |
-| 3     | NC                    |           |                       |
-| 4     | NC                    |           |                       |
-| 5     | NC                    |           |                       |
-| 6     | NC                    |           |                       |
-| 7     | NC                    |           |                       |
-| 8     | NC                    |           |                       |
-| 9     | NC                    |           |                       |
+| 2     |                       |           |                       |
+| 3     |                       |           |                       |
+| 4     |                       |           |                       |
+| 5     |                       |           |                       |
+| 6     |                       |           |                       |
+| 7     |                       |           |                       |
+| 8     |                       |           |                       |
+| 9     |                       |           |                       |
 | 10    | Mute                  |           | Circuit Not Populated |
-| 11    | NC                    |           |                       |
+| 11    |                       |           |                       |
 | 12    | Amp Turn On           |           | Not Connected         |
-| 13    | NC                    |           |                       |
+| 13    |                       |           |                       |
 | 14    | Left Rear +           | White     |                       |
 | 15    | Left Rear -           | Black     |                       |
-| 16    | NC                    |           |                       |
+| 16    |                       |           |                       |
 | 17    | Right Rear -          | Black     |                       |
 | 18    | Right Rear +          | Brown     |                       |
-| 19    | NC                    |           |                       |
+| 19    |                       |           |                       |
 | 20    | Left Front +          | Yellow    | Automatic Amp Turn On |
 | 21    | Left Front -          | Black     |                       |
-| 12    | NC                    |           |                       |
+| 12    |                       |           |                       |
 | 23    | Right Front -         | Black     |                       |
 | 24    | Right Front +         | Green     |                       |
 
-### 23 Pin Green Output/Power Connector
+## 23 Pin Green Output/Power Connector
 | Pin   | Description           | Color         | Notes     |
 | :---: | --------------------- | ------------- | --------- |
 | 1     | Left Rear Woofer +    | Red/Green     |           |
@@ -87,7 +87,7 @@ The tweeters on low-line cars have a low-pass filter capacitor soldered directly
 | 22    | Chassis Ground        | Brown         |           |
 | 23    | Constant 12 Volts     | Red           |           |
 
-### Delco 82452 Audio Amplifier
+## Delco 82452 Audio Amplifier
 I haven't been able to find any datasheets online for this chip. I may desolder one and characterize it, but I haven't the need to yet.
 
 TDA7396 is a pin-compatible drop in replacement for the Delco 82452 (Coincidence?)
@@ -95,7 +95,7 @@ TDA7396 is a pin-compatible drop in replacement for the Delco 82452 (Coincidence
 The diagnostics pin is setup to reduce the signal at the op-amp before it's fed into itself. This includes short-circuit protection, thermal overload, etc.
 
 | Pin   | Description           | Notes                                           |
-| :---: | --------------------- | -----------------------------                   |
+| :---: | --------------------- | ----------------------------------------------- |
 | 1     | IN-                   |                                                 |
 | 2     | IN+                   |                                                 |
 | 3     | Vs+                   | 12v                                             |
@@ -103,35 +103,40 @@ The diagnostics pin is setup to reduce the signal at the op-amp before it's fed 
 | 5     | OUT-                  |                                                 |
 | 6     | GND                   |                                                 |
 | 7     | OUT+                  |                                                 |
-| 8     | STANDBY               | Standby when LOW                                |
+| 8     | STANDBY               | Standby when Low                                |
 | 9     | Vs+                   | 12v                                             |
 | 10    | SYNC                  | Connected to all amplifier chips                |
 | 11    | MUTE                  | Muted when high (5v)                            |
 
 ## Volkswagen Part Numbers
 I have no clue why the Jetta and Golf have different amp part numbers. Perhaps they're tuned differently?
-1J6 035 456 C - Golf 2 & 4 Doors Monsoon Amp
-1J5 035 456 A - Jetta Monsoon Amp
+| Part Number   | Description                   |
+| ------------- | ----------------------------- |
+| 1J6 035 456 C | Golf 2 & 4 Doors Monsoon Amp  |
+| 1J5 035 456 A | Jetta Monsoon Amp             |
 
 Front woofers are held in by rivets.
-1C0 035 411 E - 2 Ohm 50W 140mm Monsoon Woofer Rear
-1C0 035 411 G - 4 Ohm 70W 140mm Monsoon Woofer Front
-3B0 035 411 E - 4 Ohm 19mm Monsoon Tweeter Rear (Todo: Confirm Part Number)
-3B0 035 411 F - 4 Ohm 19mm Monsoon Tweeter Front (Todo: Confirm Part Number)
+| Part Number   | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
+| 1C0 035 411 E | 2 Ohm 50W 140mm Monsoon Woofer Rear                           |
+| 1C0 035 411 G | 4 Ohm 70W 140mm Monsoon Woofer Front                          |
+| 3B0 035 411 E | 4 Ohm 19mm Monsoon Tweeter Rear (Todo: Confirm Part Number)   |
+| 3B0 035 411 F | 4 Ohm 19mm Monsoon Tweeter Front (Todo: Confirm Part Number)  |
 
 ## Schematics
 Coming soon.
 
-### Interesting Stuff
+## Interesting Stuff
 - Unpopulated circuit for separate front/rear mute.
 - Unpopulated circuit for Manual Mute on pin 10 of grey connector
 - Unpopulated circuit leading to Right Rear Tweeter on pin 1 of grey connector. Perhaps for reducing echo for hands-free calling or navigation unit.
 - Disconnected circuit for Manual Amp Turn On (see earlier guide).
 
-### Surface Mount Marking Decoding
+## Surface Mount Marking Decoding
 Brief list of surface mount pcb components.
-
-BA14741F Low Noise 4 Channel Operational Amplifier
-MAW/RBR SST6838 NPN Transistor
-MAZ/RFQ SST6839 PNP Transistor
-R23 2SC3356 NPN Transistor
+| Marking   | Description                                   |
+| --------- | --------------------------------------------- |
+| BA14741F  | Low Noise 4 Channel Operational Amplifier     |
+| MAW/RBR   | SST6838 NPN Transistor                        |
+| MAZ/RFQ   | SST6839 PNP Transistor                        |
+| R23       | 2SC3356 NPN Transistor                        |
